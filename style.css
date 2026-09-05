@@ -1,0 +1,1282 @@
+/* =========================
+   NEXORA - DISEÑO PRINCIPAL
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #05070b;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* =========================
+   COLORES
+   ========================= */
+
+:root {
+    --negro: #05070b;
+    --negro-2: #0a0d14;
+    --azul: #123a78;
+    --azul-claro: #2563eb;
+    --blanco: #ffffff;
+    --gris: #9ca3af;
+}
+
+
+/* =========================
+   MENÚ
+   ========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(5, 7, 11, 0.85);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #123a78,
+        0 0 25px #123a78;
+
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.08);
+
+    text-shadow:
+        0 0 8px #ffffff,
+        0 0 20px #2563eb,
+        0 0 40px #123a78;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #d1d5db;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: white;
+
+    text-shadow:
+        0 0 8px #2563eb,
+        0 0 15px #123a78;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 8% 80px;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(18, 58, 120, 0.25),
+            transparent 35%
+        ),
+        #05070b;
+}
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+.mini-title {
+    color: #4d8cff;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+
+    font-weight: 900;
+    letter-spacing: -3px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 15px #123a78,
+        0 0 35px #123a78;
+}
+
+.hero h1 span {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 15px #2563eb,
+        0 0 35px #123a78,
+        0 0 60px #123a78;
+
+    animation: led 2s infinite alternate;
+}
+
+@keyframes led {
+
+    from {
+        text-shadow:
+            0 0 5px #ffffff,
+            0 0 10px #123a78,
+            0 0 20px #123a78;
+    }
+
+    to {
+        text-shadow:
+            0 0 8px #ffffff,
+            0 0 20px #2563eb,
+            0 0 40px #123a78,
+            0 0 65px #123a78;
+    }
+}
+
+.hero-text {
+    max-width: 600px;
+
+    color: #9ca3af;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 16px 28px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: white;
+
+    background: #123a78;
+
+    border: 1px solid #2563eb;
+
+    box-shadow:
+        0 0 10px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    background: #2563eb;
+
+    box-shadow:
+        0 0 15px #2563eb,
+        0 0 35px rgba(37, 99, 235, 0.5);
+}
+
+.btn-secondary {
+    color: white;
+
+    border: 1px solid #303846;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-5px);
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+
+/* =========================
+   EFECTO DE LUZ
+   ========================= */
+
+.hero-glow {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: 5%;
+    top: 25%;
+
+    border-radius: 50%;
+
+    background: rgba(18, 58, 120, 0.15);
+
+    filter: blur(80px);
+
+    animation: floatingGlow 5s infinite alternate;
+}
+
+@keyframes floatingGlow {
+
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(30px);
+    }
+}
+
+
+/* =========================
+   SECCIONES
+   ========================= */
+
+.section {
+    padding: 120px 8%;
+
+    background: #05070b;
+}
+
+.section-label {
+    text-align: center;
+
+    color: #4d8cff;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.section h2 {
+    text-align: center;
+
+    font-size: clamp(40px, 6vw, 65px);
+
+    margin-bottom: 60px;
+
+    text-shadow:
+        0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+
+/* =========================
+   TARJETAS DE SERVICIOS
+   ========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.card {
+    padding: 40px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d111a,
+            #080a10
+        );
+
+    border: 1px solid #1c2638;
+
+    border-radius: 15px;
+
+    transition: 0.4s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 2px;
+
+    top: 0;
+    left: -100%;
+
+    background: #2563eb;
+
+    box-shadow: 0 0 15px #2563eb;
+
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    left: 0;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 10px 40px rgba(18, 58, 120, 0.25);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #9ca3af;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   PROYECTOS
+   ========================= */
+
+.projects {
+    background: #080b12;
+}
+
+.projects-description {
+    max-width: 650px;
+    margin: -35px auto 55px;
+    text-align: center;
+    color: #9ca3af;
+    line-height: 1.7;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.project {
+    background: #0b0f17;
+    border: 1px solid #1c2638;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.4s;
+    position: relative;
+}
+
+.project:hover {
+    transform: translateY(-12px);
+    border-color: #2563eb;
+
+    box-shadow:
+        0 15px 45px rgba(37, 99, 235, 0.25);
+}
+
+
+/* IMAGEN / DEMO */
+
+.project-image {
+    height: 260px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::after {
+    content: "NEXORA";
+    
+    position: absolute;
+
+    bottom: 15px;
+    right: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.5);
+}
+
+
+/* DIFERENTES DISEÑOS */
+
+.barber {
+    background:
+        radial-gradient(
+            circle at center,
+            #2563eb,
+            #0b1220 45%,
+            #05070b 80%
+        );
+}
+
+.restaurant {
+    background:
+        radial-gradient(
+            circle at center,
+            #123a78,
+            #0b111d 45%,
+            #05070b 80%
+        );
+}
+
+.store {
+    background:
+        radial-gradient(
+            circle at center,
+            #1d4ed8,
+            #0a1020 45%,
+            #05070b 80%
+        );
+}
+
+.business {
+    background:
+        radial-gradient(
+            circle at center,
+            #172554,
+            #080d18 45%,
+            #05070b 80%
+        );
+}
+
+
+/* CONTENIDO */
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content span {
+    color: #4d8cff;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.project-content h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.project-content p {
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-content a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.project-content a:hover {
+    color: #4d8cff;
+
+    text-shadow:
+        0 0 10px #2563eb;
+}
+
+
+/* EFECTO DE LUZ */
+
+.project:hover .project-image {
+    box-shadow:
+        inset 0 0 60px rgba(37, 99, 235, 0.25);
+}
+
+.project:hover .project-image {
+    transform: scale(1.02);
+    transition: 0.5s;
+}
+
+/* =========================
+   PRECIOS
+   ========================= */
+
+.pricing {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.price-card {
+    position: relative;
+
+    padding: 40px 30px;
+
+    background: #0b0f17;
+
+    border: 1px solid #1c2638;
+
+    border-radius: 15px;
+
+    transition: 0.4s;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 10px 40px rgba(37, 99, 235, 0.2);
+}
+
+.price-card.featured {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 30px rgba(37, 99, 235, 0.15);
+}
+
+.popular {
+    position: absolute;
+
+    top: -13px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #2563eb;
+
+    padding: 6px 15px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.price-card h3 {
+    font-size: 20px;
+}
+
+.price {
+    font-size: 45px;
+
+    font-weight: 900;
+
+    margin: 20px 0;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px #123a78;
+}
+
+.price-card p {
+    color: #9ca3af;
+
+    line-height: 1.6;
+}
+
+.price-card ul {
+    list-style: none;
+
+    margin: 30px 0;
+}
+
+.price-card li {
+    margin: 15px 0;
+
+    color: #d1d5db;
+}
+
+.price-button {
+    display: block;
+
+    text-align: center;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    background: #123a78;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.price-button:hover {
+    background: #2563eb;
+
+    box-shadow:
+        0 0 20px rgba(37, 99, 235, 0.6);
+
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   CONTACTO
+   ========================= */
+
+.contact {
+    text-align: center;
+
+    padding: 140px 8%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(18, 58, 120, 0.2),
+            transparent 50%
+        ),
+        #05070b;
+}
+
+.contact h2 {
+    max-width: 850px;
+
+    margin: 0 auto 25px;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    line-height: 1;
+}
+
+.contact h2 span {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px #2563eb,
+        0 0 30px #123a78;
+}
+
+.contact > p:not(.section-label) {
+    max-width: 600px;
+
+    margin: 0 auto 40px;
+
+    color: #9ca3af;
+
+    line-height: 1.7;
+}
+
+.contact-button {
+    display: inline-block;
+
+    padding: 18px 35px;
+
+    background: #123a78;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    border: 1px solid #2563eb;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+.contact-button:hover {
+    transform: scale(1.06);
+
+    background: #2563eb;
+
+    box-shadow:
+        0 0 20px #2563eb,
+        0 0 45px rgba(37, 99, 235, 0.4);
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    padding: 60px 8% 30px;
+
+    text-align: center;
+
+    background: #030407;
+
+    border-top: 1px solid #151c29;
+}
+
+.footer-logo {
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 0 10px #123a78;
+}
+
+footer > p {
+    color: #6b7280;
+}
+
+.social {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 30px 0;
+}
+
+.social a {
+    color: #9ca3af;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.social a:hover {
+    color: #2563eb;
+
+    text-shadow:
+        0 0 10px #2563eb;
+}
+
+.copyright {
+    font-size: 12px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   CELULARES
+   ========================= */
+
+@media (max-width: 900px) {
+.cards,
+.projects-grid,
+.pricing {
+    grid-template-columns: 1fr;
+}
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .cards,
+    .projects-grid,
+    .pricing {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        padding-top: 160px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .section {
+        padding: 90px 6%;
+    }
+
+}
+/* =========================
+   POR QUÉ NEXORA
+   ========================= */
+
+.advantages {
+    background: #05070b;
+}
+
+.advantages-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.advantage {
+    position: relative;
+
+    padding: 35px;
+
+    background: linear-gradient(
+        145deg,
+        #0d111a,
+        #080a10
+    );
+
+    border: 1px solid #1c2638;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.advantage:hover {
+    transform: translateY(-8px);
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 10px 40px rgba(37, 99, 235, 0.2);
+}
+
+.advantage-number {
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #2563eb;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.advantage h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.advantage p {
+    color: #9ca3af;
+    line-height: 1.7;
+}
+
+
+/* Línea LED */
+
+.advantage::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #2563eb;
+
+    box-shadow: 0 0 15px #2563eb;
+
+    transition: 0.5s;
+}
+
+.advantage:hover::before {
+    width: 100%;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 900px) {
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   FORMULARIO DE CONTACTO
+   ========================= */
+
+.contact-form {
+    max-width: 750px;
+    margin: 45px auto 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+
+    padding: 16px 18px;
+    margin-bottom: 15px;
+
+    background: #080b12;
+    color: white;
+
+    border: 1px solid #1c2638;
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 15px rgba(37, 99, 235, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.contact-form select {
+    cursor: pointer;
+}
+
+.contact-form option {
+    background: #080b12;
+    color: white;
+}
+
+.contact-form .contact-button {
+    border: 1px solid #2563eb;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   MENÚ MÓVIL
+   ========================= */
+
+.menu-toggle {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    color: #2563eb;
+
+    text-shadow:
+        0 0 10px #2563eb;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        position: fixed;
+
+        height: 70px;
+
+        padding: 0 20px;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar nav {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 0;
+
+        background: rgba(5, 7, 11, 0.97);
+
+        border-bottom: 1px solid #1c2638;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition: 0.4s ease;
+    }
+
+    .navbar nav.active {
+        max-height: 350px;
+    }
+
+    .navbar nav a {
+        width: 100%;
+
+        padding: 18px;
+
+        text-align: center;
+
+        border-bottom: 1px solid #151c29;
+    }
+
+    .navbar nav a:hover {
+        background: rgba(37, 99, 235, 0.1);
+    }
+
+}
+/* =========================
+   ESTADÍSTICAS
+   ========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 70px 8%;
+
+    background: #080b12;
+
+    border-top: 1px solid #151c29;
+    border-bottom: 1px solid #151c29;
+}
+
+.stat {
+    text-align: center;
+
+    padding: 20px;
+
+    border-right: 1px solid #1c2638;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 45px;
+    font-weight: 900;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #2563eb,
+        0 0 25px #123a78;
+
+    margin-bottom: 10px;
+}
+
+.stat span {
+    color: #6b7280;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat {
+        border-right: none;
+        border-bottom: 1px solid #1c2638;
+    }
+
+}
