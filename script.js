@@ -78,47 +78,33 @@ console.log("Sistema interactivo activo.");
 const formulario = document.getElementById("contact-form");
 
 if (formulario) {
+formulario.addEventListener("submit", function(evento) {
+evento.preventDefault();
 
-    formulario.addEventListener("submit", function(evento) {
+```
+    const nombre = document.getElementById("nombre").value.trim();
+    const negocio = document.getElementById("negocio").value.trim();
+    const tipo = document.getElementById("tipo").value;
+    const mensaje = document.getElementById("mensaje").value.trim();
 
-        evento.preventDefault();
-
-        const nombre =
-            document.getElementById("nombre").value;
-
-        const negocio =
-            document.getElementById("negocio").value;
-
-        const tipo =
-            document.getElementById("tipo").value;
-
-        const presupuesto =
-            document.getElementById("presupuesto").value;
-
-        const mensaje =
-            document.getElementById("mensaje").value;
-
-
-        const texto =
-            `Hola NEXORA 👋
+    const texto = `Hola NEXORA 👋
+```
 
 Nombre: ${nombre}
 Negocio: ${negocio}
 Tipo de página: ${tipo}
-Presupuesto: ${presupuesto}
 
 Mi idea:
 ${mensaje}`;
 
+```
+    const whatsapp =
+        "https://wa.me/543813929798?text=" +
+        encodeURIComponent(texto);
 
-        const whatsapp =
-            "https://wa.me/543813929798?text=" +
-            encodeURIComponent(texto);
-
-
-        window.open(whatsapp, "_blank");
-
-    });
+    window.open(whatsapp, "_blank");
+});
+```
 
 }
 
